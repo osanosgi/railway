@@ -26,3 +26,7 @@ Thumbs.db
 
 # Archivos temporales
 *.tmp
+
+# Certificados SSL
+certificados/
+*.pem

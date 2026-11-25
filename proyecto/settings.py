@@ -114,6 +114,28 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 # }
 
 #conexion con aiven
+# import os
+# from pathlib import Path
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.getenv('MYSQL_DATABASE'),
+#         'USER': os.getenv('MYSQL_USER'),
+#         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+#         'HOST': os.getenv('MYSQL_HOST'),
+#         'PORT': os.getenv('MYSQL_PORT', '3306'),
+#         'OPTIONS': {
+#             'ssl': {
+#                 'ca': os.getenv('MYSQL_SSL_CA'),
+#             },
+#         },
+#         'CONN_MAX_AGE': 60,
+#     }
+# }
+
+#para el despliegue
+#conexion con aiven
 import os
 from pathlib import Path
 

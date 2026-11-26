@@ -136,6 +136,21 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 
 #para el despliegue
 #conexion con aiven
+
+# Certificado SSL de Aiven
+
+MYSQL_SSL_CA_CONTENT = os.getenv("MYSQL_SSL_CA_CONTENT")
+
+MYSQL_SSL_CA = os.getenv("MYSQL_SSL_CA")
+
+# Si Railway entrega el contenido del certificado,
+# lo guardamos en un archivo temporal.
+if MYSQL_SSL_CA_CONTENT:
+    ca_path = Path("/tmp/aiven-ca.pem")
+    ca_path.write_text(MYSQL_SSL_CA_CONTENT, encoding="utf-8")
+    MYSQL_SSL_CA = str(ca_path)
+
+
 import os
 from pathlib import Path
 

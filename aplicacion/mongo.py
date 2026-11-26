@@ -19,8 +19,8 @@ MONGO_DB = os.getenv("MONGO_DB", "poliglota_mongo")
 
 
 # Validar configuración
-# if not all([MONGO_USER, MONGO_PASSWORD, MONGO_HOST]):
-#     raise ValueError("Faltan variables de configuración MongoDB")
+if not all([MONGO_USER, MONGO_PASSWORD, MONGO_HOST,MONGO_DB]):
+    raise ValueError("Faltan variables de configuración MongoDB")
 
 # Construir URI
 MONGO_URI = (

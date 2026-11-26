@@ -17,9 +17,16 @@ MONGO_PASSWORD = quote_plus(os.getenv("MONGO_PASSWORD", ""))
 MONGO_HOST = os.getenv("MONGO_HOST", "")
 MONGO_DB = os.getenv("MONGO_DB", "poliglota_mongo")
 
+# Diagnóstico de variables MongoDB
+print("=== DIAGNÓSTICO MONGODB ===")
+print("MONGO_USER configurado:", bool(MONGO_USER))
+print("MONGO_PASSWORD configurada:", bool(MONGO_PASSWORD))
+print("MONGO_HOST configurado:", bool(MONGO_HOST))
+print("MONGO_DB configurada:", bool(MONGO_DB))
+
 
 # Validar configuración
-if not all([MONGO_USER, MONGO_PASSWORD, MONGO_HOST,MONGO_DB]):
+if not all([MONGO_USER, MONGO_PASSWORD, MONGO_HOST]):
     raise ValueError("Faltan variables de configuración MongoDB")
 
 # Construir URI

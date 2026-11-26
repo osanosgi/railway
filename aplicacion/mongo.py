@@ -24,10 +24,29 @@ print("MONGO_PASSWORD configurada:", bool(MONGO_PASSWORD))
 print("MONGO_HOST configurado:", bool(MONGO_HOST))
 print("MONGO_DB configurada:", bool(MONGO_DB))
 
+variables_faltantes = []
+
+if not MONGO_USER:
+    variables_faltantes.append("MONGO_USER")
+
+if not MONGO_PASSWORD:
+    variables_faltantes.append("MONGO_PASSWORD")
+
+if not MONGO_HOST:
+    variables_faltantes.append("MONGO_HOST")
+
+if not MONGO_DB:
+    variables_faltantes.append("MONGO_DB")
+
+if variables_faltantes:
+    raise ValueError(
+        f"Faltan variables MongoDB: {', '.join(variables_faltantes)}"
+    )
+
 
 # Validar configuración
-if not all([MONGO_USER, MONGO_PASSWORD, MONGO_HOST]):
-    raise ValueError("Faltan variables de configuración MongoDB")
+# if not all([MONGO_USER, MONGO_PASSWORD, MONGO_HOST]):
+#     raise ValueError("Faltan variables de configuración MongoDB")
 
 # Construir URI
 MONGO_URI = (
